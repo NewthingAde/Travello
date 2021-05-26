@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+<div class='container py-5'>
+    <div>
+        {% for message in messages %}
+        <h3>{{message}}</h3>
+        {% endfor %}
+    </div>
+    <h1> Login</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label class="form-label">Username</label>
+            <input type= "password" class="form-control" name="username">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input type= "password" class="form-control" name="password">
+        </div>
+        <button class="btn btn-primary" type=" submit">Login</button>
+    </form>
+    <p class="text-center">Don't have an account?<a href= "{% url 'home' %}">Create an account</a></p>   
+</div>
+
+
+
+
+
+
+
+
+
+{% endblock body %}
